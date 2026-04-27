@@ -28,7 +28,7 @@ func main() {
 	var EBT = revenue - expenses
 	fmt.Println("Value of before tax is", EBT)
 
-	var profit = revenue / expenses
+	var profit = (revenue - expenses) * (1 - (taxrate / 100))
 	fmt.Println("Value after tax is ", profit)
 
 	var ratio = EBT / profit
