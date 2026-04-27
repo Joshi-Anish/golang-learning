@@ -45,7 +45,7 @@ import (
 func main() {
 	fmt.Print("---------Welcome to Profit Calculator----\n")
 
-	//variable declaration
+	// variable declaration
 	var revenue float64
 	var expenses float64
 	var taxrate float64
@@ -53,6 +53,11 @@ func main() {
 	//user input
 	// there is & here because we are sending value to function
 	inputData(&revenue, &expenses, &taxrate)
+
+	//2nd method solution
+	// revenue := userInput("revenue:")
+	// expenses := userInput("expenses:")
+	// taxrate := userInput("taxrate:")
 
 	//output and calulation function call
 
@@ -77,11 +82,17 @@ func inputData(revenue, expenses, taxrate *float64) {
 
 }
 
+//2nd method
+// func userInput(data string) float64 {
+// 	var input float64
+// 	fmt.Scan(&input)
+// 	return input
+// }
+
 func calc(revenue, expenses, taxrate float64) (float64, float64, float64) {
+
 	var EBT = revenue - expenses
-
 	var profit = (revenue - expenses) * (1 - (taxrate / 100))
-
 	var ratio = EBT / profit
 
 	return EBT, profit, ratio
