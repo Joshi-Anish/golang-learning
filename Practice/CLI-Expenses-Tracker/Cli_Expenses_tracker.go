@@ -1,13 +1,51 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"os"
+	"strconv"
 )
+
+func saveExpensesToFile(expenses float64) {
+	data := fmt.Sprint(expenses)
+	err := os.WriteFile("totalExpense.txt", []byte(data), 0644)
+
+	if err != nil {
+		fmt.Println("Error saving file")
+		return
+	}
+	fmt.Println("Expenses is updated in FIle")
+}
+
+func readExpensesFromFile() (float64, error) {
+
+	data, err := os.ReadFile("totalExpense.txt")
+
+	if err != nil {
+		return 0.0, errors.New("No file exits")
+	}
+	expensesText := string(data)
+
+	expenses, err := strconv.ParseFloat(expensesText, 64)
+
+	if err != nil {
+		return 0.0, errors.New("Error while reading")
+	}
+
+	return expenses, nil
+}
 
 func main() {
 	fmt.Print("Welcome to CLI Expense Tracker")
 
-	var expenses = 0.0
+	expenses, err := readExpensesFromFile()
+
+	// If file does not exist
+	if err != nil {
+		fmt.Println(err)
+		expenses = 0.0
+	}
 	//variable declartion
 	// var addExpenses float64
 	// var viewExpenses float64
@@ -36,6 +74,11 @@ func main() {
 			fmt.Scan(&expenseAmount)
 
 			expenses += expenseAmount
+
+			fmt.Println(expensesName, "added successfully!")
+
+			// Save total expenses to file
+			saveExpensesToFile(expenses)
 
 		case 2:
 			fmt.Println("This will be added later")
