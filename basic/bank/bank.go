@@ -2,7 +2,14 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
+
+func writeBalanceToFile(balance float64) {
+	balanceText := fmt.Sprint(balance)
+	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+
+}
 
 func main() {
 	//variabble declaration
@@ -24,6 +31,7 @@ func main() {
 
 		if choice == 1 {
 			fmt.Println("Your balance is :", Balance)
+			writeBalanceToFile(Balance)
 		} else if choice == 2 {
 
 			var deposit float64
@@ -36,7 +44,8 @@ func main() {
 			}
 			fmt.Println("you deposited:", deposit)
 			Balance += deposit
-			fmt.Println("you New balance is  :", Balance)
+			fmt.Println("you New balance is:", Balance)
+			writeBalanceToFile(Balance)
 
 		} else if choice == 3 {
 			var withdraw float64
@@ -54,6 +63,7 @@ func main() {
 
 			Balance -= withdraw
 			fmt.Println("your new Balance is :", Balance)
+			writeBalanceToFile(Balance)
 
 		} else {
 			println("goodbye")
