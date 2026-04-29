@@ -1,60 +1,27 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"time"
+	"struct.com/struct/user"
 )
-
-type user struct {
-	firstName string
-	lastName  string
-	birthDate string
-	createdAt time.Time
-}
-
-// using constructor
-func newUser(ufirstName, ulastName, ubirthdate string) (*user, error) {
-	if ufirstName == "" || ulastName == "" || ubirthdate == "" {
-		return nil, errors.New("firstName,LastName and dob is compulasory")
-	}
-
-	return &user{
-		firstName: ufirstName,
-		lastName:  ulastName,
-		birthDate: ubirthdate,
-		createdAt: time.Now(),
-	}, nil
-}
-
-// method attaching stuct to user
-func (u *user) outputUserDetails() {
-
-	fmt.Println(u.firstName, u.lastName, u.birthDate)
-
-}
-
-func (u *user) clearUserDetail() {
-	u.firstName = ""
-	u.lastName = ""
-}
 
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
 	userLastName := getUserData("Please enter your last name: ")
 	userBirthDate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	var userData *user
+	var userData *user.User
 
-	userData, err := newUser(userFirstName, userLastName, userBirthDate)
+	userData, err := user.NewUser(userFirstName, userLastName, userBirthDate)
+
 	if err != nil {
-		fmt.Print("erroe")
+		fmt.Println("error")
 		return
 	}
 
-	userData.outputUserDetails()
-	userData.clearUserDetail()
-	userData.outputUserDetails()
+	userData.OutputUserDetails()
+	userData.ClearUserDetail()
+	userData.OutputUserDetails()
 
 }
 
