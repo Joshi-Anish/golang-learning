@@ -12,7 +12,7 @@ func main() {
 
 	var userData *user.User
 
-	userData, err := user.NewUser(userFirstName, userLastName, userBirthDate)
+	userData, err := user.New(userFirstName, userLastName, userBirthDate)
 
 	if err != nil {
 		fmt.Println("error")
