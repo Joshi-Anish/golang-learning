@@ -15,6 +15,7 @@ type User struct {
 
 // using constructor
 func New(ufirstName, ulastName, ubirthdate string) (*User, error) {
+
 	if ufirstName == "" || ulastName == "" || ubirthdate == "" {
 		return nil, errors.New("firstName,LastName and dob is compulasory")
 	}
