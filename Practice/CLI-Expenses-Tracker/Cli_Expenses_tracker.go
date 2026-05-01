@@ -87,7 +87,7 @@ func main() {
 			fmt.Println(" Total Expenses:", expenses)
 
 		case 4:
-			fmt.Println("Exiting...")
+			fmt.Println("Exiting.....")
 			return
 
 		default:
