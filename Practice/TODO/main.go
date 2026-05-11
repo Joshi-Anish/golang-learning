@@ -13,6 +13,12 @@ type saver interface {
 	Save() error
 }
 
+// embeded interface using interface inside interface
+type outputtable interface {
+	saver
+	Display()
+}
+
 func main() {
 
 	title, content := getNoteData()
@@ -30,21 +36,19 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-
-	todoItem.Display()
-
-	err = saveData(todoItem)
+	err = outputData(todoItem)
 	if err != nil {
 		return
 	}
+	outputData(userNote)
 
-	userNote.Display()
+}
 
-	err = saveData(userNote)
-	if err != nil {
-		return
-	}
+//main function end
 
+func outputData(data outputtable) error {
+	data.Display()
+	return saveData(data)
 }
 func saveData(data saver) error {
 	err := data.Save()
