@@ -33,21 +33,27 @@ func main() {
 
 	todoItem.Display()
 
-	err = todoItem.Save()
+	err = saveData(todoItem)
 	if err != nil {
-		fmt.Println("error while saving todo file")
 		return
 	}
-	fmt.Println("todo file saved")
 
 	userNote.Display()
 
-	err = userNote.Save()
+	err = saveData(userNote)
 	if err != nil {
-		fmt.Println("error while saving file")
 		return
 	}
+
+}
+func saveData(data saver) error {
+	err := data.Save()
+	if err != nil {
+		fmt.Println("error while saving file")
+		return err
+	}
 	fmt.Println("file saved")
+	return nil
 }
 
 func getNoteData() (string, string) {
