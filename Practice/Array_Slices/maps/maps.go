@@ -1,4 +1,4 @@
-package main
+package maps
 
 import (
 	"fmt"
@@ -11,4 +11,9 @@ func main() {
 	}
 	fmt.Println(link)
 	fmt.Println(link["google"])
+
+	//adding and deleting link
+	link["linkedin"] = "https://www.linkedin.com"
+	delete(link, "google")
+	fmt.Println(link)
 }
