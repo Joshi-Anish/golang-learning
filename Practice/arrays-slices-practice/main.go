@@ -5,13 +5,26 @@ import (
 )
 
 func main() {
+	//1
 	hobbies := [3]string{"playingCricket", "watchingShows", "bikeRiding"}
 	fmt.Println("All hobbies", hobbies)
+
+	//2
 	fmt.Println("The first hobby", hobbies[0])
 
 	newHobbies := hobbies[1:]
 	fmt.Println("the 2 other hobbies", newHobbies)
 
+	//3
+	startingHobbies := hobbies[:2]
+	differentWayStatingHobbies := hobbies[0:2]
+
+	fmt.Println(startingHobbies)
+	fmt.Println(differentWayStatingHobbies)
+
+	//4
+	secondHobby := startingHobbies[1:]
+	fmt.Println(secondHobby)
 }
 
 // Time to practice what you learned!
