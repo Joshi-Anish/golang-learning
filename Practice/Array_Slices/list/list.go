@@ -1,17 +1,22 @@
-package main
+package list
 
 import (
 	"fmt"
 )
 
-// dynamic array
 func main() {
 	prices := []float64{2.2, 1, 0}
-	fmt.Println(prices)
+	fmt.Println(prices[:1])
+	prices[1] = 9.9
 
 	//updating this slice dynamically
 
-	prices = append(prices, 3.3)
+	prices = append(prices, 5.99, 3.3, 12.99, 100.10)
+	prices = prices[1:]
+	fmt.Println(prices)
+
+	discountedPrices := []float64{101.99, 80.99, 20.59}
+	prices = append(prices, discountedPrices...)
 	fmt.Println(prices)
 }
 
