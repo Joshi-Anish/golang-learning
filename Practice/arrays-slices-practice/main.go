@@ -25,6 +25,14 @@ func main() {
 	//4
 	secondHobby := startingHobbies[1:]
 	fmt.Println(secondHobby)
+
+	//5
+	courseGoal := []string{"1.learn basic of go.", "2.can start doing adavance task"}
+	fmt.Println(courseGoal)
+	courseGoal[1] = "Do project"
+	fmt.Println(courseGoal)
+	courseGoal = append(courseGoal, "get a certificate")
+	fmt.Println(courseGoal)
 }
 
 // Time to practice what you learned!
