@@ -14,4 +14,12 @@ func main() {
 	//we used the 3rd vakue of array
 	productName[2] = "joshi"
 	fmt.Println(productName)
+
+	//slices
+	newPrices := prices[1:3]
+	fmt.Println(newPrices)
+
+	//slices inside slices
+	hightedPrice := newPrices[:1]
+	fmt.Println(hightedPrice)
 }
