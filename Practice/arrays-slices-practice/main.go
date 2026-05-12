@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+type product struct {
+	id    string
+	title string
+	price float64
+}
+
 func main() {
 	//1
 	hobbies := [3]string{"playingCricket", "watchingShows", "bikeRiding"}
@@ -33,6 +39,30 @@ func main() {
 	fmt.Println(courseGoal)
 	courseGoal = append(courseGoal, "get a certificate")
 	fmt.Println(courseGoal)
+
+	//6
+	products := []product{
+		{
+			id:    "1",
+			title: "mobile",
+			price: 129.23,
+		},
+		{
+			id:    "2",
+			title: "tablet",
+			price: 300.0,
+		},
+	}
+	fmt.Println(products)
+
+	//new product added
+	newProduct := product{
+		id:    "3",
+		title: "earpods",
+		price: 11.99,
+	}
+	products = append(products, newProduct)
+	fmt.Println("after new product added", products)
 }
 
 // Time to practice what you learned!
