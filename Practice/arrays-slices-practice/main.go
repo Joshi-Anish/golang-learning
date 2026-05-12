@@ -1,6 +1,16 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
+	hobbies := [3]string{"playingCricket", "watchingShows", "bikeRiding"}
+	fmt.Println("All hobbies", hobbies)
+	fmt.Println("The first hobby", hobbies[0])
+
+	newHobbies := hobbies[1:]
+	fmt.Println("the 2 other hobbies", newHobbies)
 
 }
 
