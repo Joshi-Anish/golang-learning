@@ -7,16 +7,24 @@ import (
 func main() {
 
 	numbers := []int{2, 3, 4}
-	double := doubleNumber(&numbers)
-	fmt.Println(double)
+	doublev := transformNumber(&numbers, double)
+	fmt.Println(doublev)
+	triplev := transformNumber(&numbers, triple)
+	fmt.Println(triplev)
 
 }
-func doubleNumber(numbers *[]int) []int {
+func transformNumber(numbers *[]int, tranform func(int) int) []int {
 
 	dNumber := []int{}
 
-	for _, value := range *numbers {
-		dNumber = append(dNumber, value*2)
+	for _, val := range *numbers {
+		dNumber = append(dNumber, tranform(val))
 	}
 	return dNumber
+}
+func double(numbers int) int {
+	return numbers * 2
+}
+func triple(number int) int {
+	return number * 3
 }
